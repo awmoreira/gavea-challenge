@@ -37,13 +37,17 @@
     "react/jsx-props-no-spreading": "off",
     "react/no-unused-prop-types": "off",
     "no-unused-expressions": "off",
-    "import/no-unresolved": "off",
+    "import/no-unresolved": "error",
     "no-console": "off",
     "react/require-default-props": "off",
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [".tsx", ".ios.tsx", ".android.tsx"]
+        "extensions": [
+          ".tsx",
+          ".ios.tsx",
+          ".android.tsx"
+        ]
       }
     ],
     "import/extensions": [
@@ -56,7 +60,9 @@
     ],
     "no-nested-ternary": "off",
     "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": ["error"],
+    "@typescript-eslint/no-use-before-define": [
+      "error"
+    ],
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-explicit-any": "off",
@@ -65,12 +71,21 @@
     "import/prefer-default-export": "off"
   },
   "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [
+        ".ts",
+        ".tsx"
+      ]
+    },
     "import/resolver": {
-      "typescript": {},
-      "babel-plugin-root-import": {
-        "rootPathPrefix": "~",
-        "rootPathSuffix": "src"
+      "typescript": {
+        "alwaysTryTypes": true
       }
+    },
+    "babel-plugin-root-import": {
+      "rootPathPrefix": "~",
+      "rootPathSuffix": "src"
     }
   }
+}
 }
