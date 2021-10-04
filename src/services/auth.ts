@@ -1,9 +1,13 @@
+import {v4 as uuidV4} from 'uuid';
+import 'react-native-get-random-values';
 import api from '~/services/api';
 
 interface IUserData {
-  fullname: string;
   email: string;
-  token: string;
+  id: string;
+  profile?: {
+    fullname?: string;
+  };
 }
 
 export async function signIn(
@@ -11,21 +15,58 @@ export async function signIn(
   password: string,
 ): Promise<IUserData | null> {
   try {
-    // const response = await api.post('autenticacao', {
-    //   email,
-    //   password,
-    // });
+    let userData: any;
+    const response: any = await api.post('user/Login', {
+      email,
+      password,
+    });
 
-    setInterval(() => {
-      console.log({email, password});
-    }, 5000); // run this thang every 2 seconds
+    if (response) {
+      userData = await api.post('user/Read', {
+        email,
+      });
+    } else {
+      throw new Error('API Error');
+    }
 
     return {
-      fullname: 'Allan Winckler Moreira',
-      email: 'awmoreira@gmail.com',
-      token: 'naçdn293nfdng',
+      email,
+      id: userData.data?.account?.id,
+      profile: {
+        fullname: userData.data?.account?.profile?.fullname || 'Without Name',
+      },
     };
-  } catch (err) {
-    return null;
+  } catch (err: any) {
+    console.log('Api error', err);
+    throw new Error('API Error');
+  }
+}
+
+export async function signUp(
+  fullname: string,
+  email: string,
+  password: string,
+): Promise<IUserData | undefined> {
+  try {
+    const id = uuidV4();
+    const response: any = await api.post('user/Create', {
+      username: id,
+      email,
+      password,
+      profile: {
+        fullname,
+      },
+    });
+
+    return {
+      email,
+      id: response.data?.account.id,
+      profile: {
+        fullname,
+      },
+    };
+  } catch (err: any) {
+    console.log('Api error', err);
+    throw new Error('API Error');
   }
 }

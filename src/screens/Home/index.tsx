@@ -28,6 +28,7 @@ const Home: React.FC = () => {
   const {signOut, signInData} = useAuth();
   const items = [
     {
+      id: 0,
       part: 'AgAmerica',
       pag: 'Fev/21',
       ton: '2.000',
@@ -36,6 +37,7 @@ const Home: React.FC = () => {
       avatar: Images.AvatarAgAmerica,
     },
     {
+      id: 1,
       part: 'TrFood',
       pag: 'Fev/21',
       ton: '2.000',
@@ -44,6 +46,7 @@ const Home: React.FC = () => {
       avatar: Images.AvatarTrFood,
     },
     {
+      id: 2,
       part: 'GOSC',
       pag: 'Fev/21',
       ton: '2.000',
@@ -52,6 +55,7 @@ const Home: React.FC = () => {
       avatar: Images.AvatarGosc,
     },
     {
+      id: 3,
       part: 'AgCerr',
       pag: 'Fev/21',
       ton: '2.000',
@@ -60,6 +64,7 @@ const Home: React.FC = () => {
       avatar: Images.AvatarAgCerr,
     },
     {
+      id: 4,
       part: 'Agro1001',
       pag: 'Fev/21',
       ton: '2.000',
@@ -68,6 +73,7 @@ const Home: React.FC = () => {
       avatar: Images.AvatarAgro1001,
     },
     {
+      id: 5,
       part: 'AgAmerica',
       pag: 'Fev/21',
       ton: '2.000',
@@ -76,6 +82,7 @@ const Home: React.FC = () => {
       avatar: Images.AvatarAgAmerica,
     },
     {
+      id: 6,
       part: 'TrFood',
       pag: 'Fev/21',
       ton: '2.000',
@@ -84,6 +91,7 @@ const Home: React.FC = () => {
       avatar: Images.AvatarTrFood,
     },
     {
+      id: 7,
       part: 'AgAmerica',
       pag: 'Fev/21',
       ton: '2.000',
@@ -92,6 +100,7 @@ const Home: React.FC = () => {
       avatar: Images.AvatarAgAmerica,
     },
     {
+      id: 8,
       part: 'Agro1001',
       pag: 'Fev/21',
       ton: '2.000',
@@ -100,6 +109,7 @@ const Home: React.FC = () => {
       avatar: Images.AvatarAgro1001,
     },
     {
+      id: 9,
       part: 'AgAmerica',
       pag: 'Fev/21',
       ton: '2.000',
@@ -108,6 +118,7 @@ const Home: React.FC = () => {
       avatar: Images.AvatarAgAmerica,
     },
     {
+      id: 10,
       part: 'TrFood',
       pag: 'Fev/21',
       ton: '2.000',
@@ -126,15 +137,21 @@ const Home: React.FC = () => {
       </Header>
       <BoxInfo>
         <InitialsName>
-          <TwoLetters>{`${signInData?.fullname
-            .split(' ')[0]
-            .substring(0, 1)}${signInData?.fullname
-            .split(' ')[1]
-            .substring(0, 1)}`}</TwoLetters>
+          <TwoLetters>{`${
+            signInData?.profile?.fullname &&
+            signInData?.profile?.fullname.split(' ')[0].substring(0, 1)
+          }${
+            signInData?.profile?.fullname &&
+            signInData?.profile?.fullname.split(' ')[1].substring(0, 1)
+          }`}</TwoLetters>
         </InitialsName>
         <Column>
-          <Name>{`Olá, ${signInData?.fullname.split(' ')[0]} ${
-            signInData?.fullname.split(' ')[1]
+          <Name>{`Olá, ${
+            signInData?.profile?.fullname &&
+            signInData?.profile?.fullname.split(' ')[0]
+          } ${
+            signInData?.profile?.fullname &&
+            signInData?.profile?.fullname.split(' ')[1]
           }`}</Name>
           <Provider>Gavea Marketplace</Provider>
         </Column>
@@ -149,7 +166,7 @@ const Home: React.FC = () => {
           <HeaderList>R$</HeaderList>
         </WrapperHeaderList>
         {items.map(item => (
-          <ListItem>
+          <ListItem key={item.id}>
             <ListColor transaction={item.transaction} />
             <WrapperAvatar>
               <AvatarItem source={item.avatar} resizeMode="contain" />

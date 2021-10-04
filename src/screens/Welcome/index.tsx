@@ -38,8 +38,10 @@ const Welcome: React.FC = () => {
         </WrapperTop>
         <WrapperBottom>
           <WrapperButtons>
-            <PrimaryButton onPress={goToSignIn}>Entrar</PrimaryButton>
-            <SecondaryButton onPress={goToSignUp}>Criar conta</SecondaryButton>
+            <PrimaryButton onPress={() => goToSignIn()}>Entrar</PrimaryButton>
+            <SecondaryButton onPress={() => goToSignUp()}>
+              Criar conta
+            </SecondaryButton>
           </WrapperButtons>
         </WrapperBottom>
       </WelcomeBackground>

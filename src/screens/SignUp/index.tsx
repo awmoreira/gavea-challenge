@@ -51,6 +51,7 @@ const SignUp: React.FC = () => {
           <Title>Criar Conta</Title>
           <WrapperInputs>
             <Input
+              autoFocus
               onChangeText={handleChange('fullname')}
               value={values.fullname}
               autoCapitalize="none"
@@ -96,16 +97,16 @@ const SignUp: React.FC = () => {
               placeholder="Confirmar Senha"
               icon={<Padlock color="#748C94" />}
               secureTextEntry
-              onSubmitEditing={handleSubmit}
+              onSubmitEditing={() => handleSubmit()}
             />
           </WrapperInputs>
-          <PrimaryButton onPress={handleSubmit} loading={loading}>
+          <PrimaryButton onPress={() => handleSubmit()} loading={loading}>
             Cadastrar
           </PrimaryButton>
         </WrapperCenter>
         <WrapperBottom>
           <Description>Já tem uma conta? </Description>
-          <ButtonOrange onPress={goToSignIn}>
+          <ButtonOrange onPress={() => goToSignIn()}>
             <DescriptionOrange>Faça o login</DescriptionOrange>
           </ButtonOrange>
         </WrapperBottom>

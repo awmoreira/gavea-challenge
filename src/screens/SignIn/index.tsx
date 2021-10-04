@@ -68,16 +68,16 @@ const SignIn: React.FC = () => {
               placeholder="Senha"
               icon={<Padlock color="#748C94" />}
               secureTextEntry
-              onSubmitEditing={handleSubmit}
+              onSubmitEditing={() => handleSubmit()}
             />
           </WrapperInputs>
-          <PrimaryButton onPress={handleSubmit} loading={loading}>
+          <PrimaryButton onPress={() => handleSubmit()} loading={loading}>
             Entrar
           </PrimaryButton>
         </WrapperCenter>
         <WrapperBottom>
           <Description>Não tem uma conta? </Description>
-          <ButtonOrange onPress={goToSignUp}>
+          <ButtonOrange onPress={() => goToSignUp()}>
             <DescriptionOrange>Criar conta</DescriptionOrange>
           </ButtonOrange>
         </WrapperBottom>

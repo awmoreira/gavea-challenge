@@ -6,7 +6,9 @@ import api from '~/services/api';
 import dropdownRef from '~/components/DropdownAlert';
 
 type UserData = {
-  fullname: string;
+  profile?: {
+    fullname?: string;
+  };
   email: string;
   token?: string;
 };
@@ -51,15 +53,29 @@ const AuthProvider: React.FC = ({children}) => {
   });
 
   async function signIn(email: string, password: string) {
-    setLoading(true);
-    const response = await auth.signIn(email, password);
-    if (response) {
-      setSignInData(response);
+    try {
+      setLoading(true);
+      const response = await auth.signIn(email, password);
+      if (response) {
+        setSignInData(response);
 
-      await AsyncStorage.setItem('@signInData', JSON.stringify(response));
+        await AsyncStorage.setItem('@signInData', JSON.stringify(response));
+      } else {
+        dropdownRef.current?.alertWithType(
+          'error',
+          'Usuário/Senha',
+          'Dados não conferem.',
+        );
+      }
       setLoading(false);
-    } else {
+    } catch (err: any) {
+      console.log('ERROR LOGIN', err);
       setLoading(false);
+      dropdownRef.current?.alertWithType(
+        'error',
+        'API Error',
+        'API down ou data not exists.',
+      );
     }
   }
 
@@ -75,8 +91,10 @@ const AuthProvider: React.FC = ({children}) => {
     confirmation: string,
   ) {
     try {
+      setLoading(true);
       if (password === confirmation) {
-        setSignInData({fullname, email, token: '123-1231-123-1231-12323'});
+        const response = await auth.signUp(fullname, email, password);
+        setSignInData(response);
       } else {
         dropdownRef.current?.alertWithType(
           'error',
@@ -84,11 +102,13 @@ const AuthProvider: React.FC = ({children}) => {
           'As senhas não são iguais.',
         );
       }
+      setLoading(false);
     } catch (err) {
+      setLoading(false);
       dropdownRef.current?.alertWithType(
         'error',
         'API Error',
-        'Nenhuma resposta da API.',
+        'API down ou data not exists.',
       );
     }
   }
