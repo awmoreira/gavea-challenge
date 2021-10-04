@@ -8,10 +8,19 @@ export const Container = styled.View`
 export const WrapperTop = styled.View`
   flex: 1;
 `;
-export const WrapperCenter = styled.View`
+// export const WrapperCenter = styled.View`
+//   flex: 2;
+//   padding-horizontal: 21px;
+// `;
+
+export const WrapperCenter = styled.KeyboardAvoidingView.attrs({
+  behavior: 'padding',
+})`
   flex: 2;
   padding-horizontal: 21px;
+  justify-content: center;
 `;
+
 export const WrapperBottom = styled.View`
   flex: 1;
   flex-direction: row;
@@ -36,6 +45,8 @@ export const Description = styled.Text`
   color: ${({theme}) => theme.colors.text};
 `;
 
+export const ButtonOrange = styled.TouchableOpacity``;
+
 export const DescriptionOrange = styled.Text`
   font-family: ${({theme}) => theme.fonts.karla.bold};
   font-weight: 700;
@@ -45,9 +56,8 @@ export const DescriptionOrange = styled.Text`
 `;
 
 export const WrapperInputs = styled.View`
-  min-height: 125px;
+  min-height: 280px;
   margin-top: 22px;
   margin-bottom: 30px;
-  flex: 1;
-  justify-content: space-between;
+  justify-content: space-around;
 `;

@@ -1,4 +1,5 @@
 import React from 'react';
+import {useNavigation} from '@react-navigation/native';
 
 import {
   WelcomeBackground,
@@ -12,9 +13,20 @@ import {
 } from './styles';
 
 import Images from '~/assets/images';
+import Routes from '~/navigation/routes';
 import {PrimaryButton, SecondaryButton} from '~/components/Button';
 
 const Welcome: React.FC = () => {
+  const navigation = useNavigation();
+
+  const goToSignIn = () => {
+    navigation.navigate(Routes.SIGN_IN);
+  };
+
+  const goToSignUp = () => {
+    navigation.navigate(Routes.SIGN_UP);
+  };
+
   return (
     <Container>
       <WelcomeBackground source={Images.Background}>
@@ -26,12 +38,11 @@ const Welcome: React.FC = () => {
         </WrapperTop>
         <WrapperBottom>
           <WrapperButtons>
-            <PrimaryButton>Entrar</PrimaryButton>
-            <SecondaryButton>Criar conta</SecondaryButton>
+            <PrimaryButton onPress={goToSignIn}>Entrar</PrimaryButton>
+            <SecondaryButton onPress={goToSignUp}>Criar conta</SecondaryButton>
           </WrapperButtons>
         </WrapperBottom>
       </WelcomeBackground>
-      <WrapperBottom />
     </Container>
   );
 };

@@ -45,6 +45,8 @@ export const Description = styled.Text`
   color: ${({theme}) => theme.colors.text};
 `;
 
+export const ButtonOrange = styled.TouchableOpacity``;
+
 export const DescriptionOrange = styled.Text`
   font-family: ${({theme}) => theme.fonts.karla.bold};
   font-weight: 700;

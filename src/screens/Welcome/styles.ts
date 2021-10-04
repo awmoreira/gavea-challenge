@@ -9,7 +9,6 @@ export const WelcomeBackground = styled.ImageBackground`
 `;
 
 export const WrapperTop = styled.View`
-  flex: 1;
   margin: 45px 21px 0px;
 `;
 
@@ -22,8 +21,8 @@ export const WrapperBottom = styled.View`
 
 export const WrapperLogo = styled.View`
   position: absolute;
+  top: ${({theme}) => (theme.metrics.screenWidth <= 375 ? '0px' : '45px')};
   left: 21px;
-  top: 45px;
 `;
 
 export const Logo = styled.Image`
@@ -35,7 +34,7 @@ export const Title = styled.Text`
   width: 290px;
   position: absolute;
   left: 21px;
-  top: 299px;
+  top: ${({theme}) => (theme.metrics.screenWidth <= 375 ? '252px' : '299px')};
 
   font-family: ${({theme}) => theme.fonts.inter.regular};
   font-style: normal;

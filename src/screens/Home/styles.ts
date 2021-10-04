@@ -32,11 +32,14 @@ export const BoxInfo = styled.View`
   align-items: center;
 `;
 
-export const WrapperLogo = styled.View``;
-
-export const Logo = styled.Image`
+export const WrapperLogo = styled.TouchableOpacity`
   width: 99px;
   height: 45.66px;
+`;
+
+export const Logo = styled.Image`
+  width: 100%;
+  height: 100%;
 `;
 
 export const InitialsName = styled.View`
@@ -48,12 +51,13 @@ export const InitialsName = styled.View`
   border-radius: 25px;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 `;
 
 export const TwoLetters = styled.Text`
   font-family: ${({theme}) => theme.fonts.karla.regular};
   font-weight: normal;
-  font-size: 22px;
+  font-size: 18px;
   color: ${({theme}) => theme.colors.white};
 `;
 
@@ -86,7 +90,7 @@ export const WrapperHeaderList = styled.View`
 `;
 
 interface IText {
-  width?: number;
+  width?: string;
 }
 
 export const HeaderList = styled.Text<IText>`
@@ -95,7 +99,7 @@ export const HeaderList = styled.Text<IText>`
   font-size: 12px;
 
   color: #b1bec2;
-  width: ${({width}) => width || null};
+  width: ${({width}) => width || 'auto'};
 `;
 
 export const ListItem = styled.View`
@@ -137,7 +141,7 @@ export const AvatarItem = styled.Image``;
 
 interface ITextItem {
   transaction?: string;
-  width?: number;
+  width?: string;
 }
 
 export const TextItem = styled.Text<ITextItem>`
@@ -153,5 +157,5 @@ export const TextItem = styled.Text<ITextItem>`
       : transaction === 'credit'
       ? theme.colors.success
       : '#47595F'};
-  width: ${({width}) => width || null};
+  width: ${({width}) => width || 'auto'};
 `;

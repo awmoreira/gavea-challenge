@@ -7,6 +7,12 @@ import SignUp from '~/screens/SignUp';
 
 import Routes from '../routes';
 
+export type RootStackParamList = {
+  Welcome: undefined;
+  SignIn: undefined;
+  SignUp: undefined;
+};
+
 const Auth = createStackNavigator();
 
 const noHeader = {
@@ -15,7 +21,7 @@ const noHeader = {
 
 const Unlogged: React.FC = () => {
   return (
-    <Auth.Navigator initialRouteName={Routes.SIGN_IN}>
+    <Auth.Navigator initialRouteName={Routes.WELCOME}>
       <Auth.Screen
         name={Routes.WELCOME}
         component={Welcome}

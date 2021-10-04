@@ -1,4 +1,5 @@
 import React from 'react';
+import {useNavigation} from '@react-navigation/native';
 
 import Input from '~/components/TextInput';
 import {PrimaryButton} from '~/components/Button';
@@ -11,11 +12,20 @@ import {
   WrapperBottom,
   Title,
   Description,
+  ButtonOrange,
   DescriptionOrange,
   WrapperInputs,
 } from './styles';
 
+import Routes from '~/navigation/routes';
+
 const SignUp: React.FC = () => {
+  const navigation = useNavigation();
+
+  const goToSignIn = () => {
+    navigation.navigate(Routes.SIGN_IN);
+  };
+
   return (
     <Container>
       <WrapperTop />
@@ -40,7 +50,9 @@ const SignUp: React.FC = () => {
       </WrapperCenter>
       <WrapperBottom>
         <Description>Já tem uma conta? </Description>
-        <DescriptionOrange>Faça o login</DescriptionOrange>
+        <ButtonOrange onPress={goToSignIn}>
+          <DescriptionOrange>Faça o login</DescriptionOrange>
+        </ButtonOrange>
       </WrapperBottom>
     </Container>
   );

@@ -22,7 +22,10 @@ import {
 } from './styles';
 import Images from '~/assets/images';
 
+import {useAuth} from '~/contexts/Auth';
+
 const Home: React.FC = () => {
+  const {signOut, signInData} = useAuth();
   const items = [
     {
       part: 'AgAmerica',
@@ -117,16 +120,22 @@ const Home: React.FC = () => {
   return (
     <Container>
       <Header>
-        <WrapperLogo>
+        <WrapperLogo onPress={signOut}>
           <Logo source={Images.Logo} />
         </WrapperLogo>
       </Header>
       <BoxInfo>
         <InitialsName>
-          <TwoLetters>Fr</TwoLetters>
+          <TwoLetters>{`${signInData?.fullname
+            .split(' ')[0]
+            .substring(0, 1)}${signInData?.fullname
+            .split(' ')[1]
+            .substring(0, 1)}`}</TwoLetters>
         </InitialsName>
         <Column>
-          <Name>Olá, Allan Winckler</Name>
+          <Name>{`Olá, ${signInData?.fullname.split(' ')[0]} ${
+            signInData?.fullname.split(' ')[1]
+          }`}</Name>
           <Provider>Gavea Marketplace</Provider>
         </Column>
       </BoxInfo>
@@ -134,9 +143,9 @@ const Home: React.FC = () => {
         <WrapperHeaderList>
           <ListColor />
           <WrapperAvatar />
-          <HeaderList width={91}>Part</HeaderList>
-          <HeaderList width={64}>Pag</HeaderList>
-          <HeaderList width={62}>Ton</HeaderList>
+          <HeaderList width="91px">Part</HeaderList>
+          <HeaderList width="64px">Pag</HeaderList>
+          <HeaderList width="62px">Ton</HeaderList>
           <HeaderList>R$</HeaderList>
         </WrapperHeaderList>
         {items.map(item => (
@@ -145,9 +154,9 @@ const Home: React.FC = () => {
             <WrapperAvatar>
               <AvatarItem source={item.avatar} resizeMode="contain" />
             </WrapperAvatar>
-            <TextItem width={91}>{item.part}</TextItem>
-            <TextItem width={64}>{item.pag}</TextItem>
-            <TextItem width={62}>{item.ton}</TextItem>
+            <TextItem width="91px">{item.part}</TextItem>
+            <TextItem width="64px">{item.pag}</TextItem>
+            <TextItem width="62px">{item.ton}</TextItem>
             <TextItem transaction={item.transaction}>{item.value}</TextItem>
           </ListItem>
         ))}
