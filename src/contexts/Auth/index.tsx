@@ -1,15 +1,18 @@
 import React, {createContext, useState, useEffect, useContext} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+import * as auth from '~/services/auth';
 import api from '~/services/api';
 
 type UserData = {
+  fullname: string;
+  email: string;
   token?: string;
 };
 
 interface AuthContextData {
   signed: boolean;
-  data: UserData | null;
+  signInData: UserData | null;
   storageLoading: boolean;
   loading: boolean;
   signIn(username: string, password: string): Promise<void>;
@@ -40,9 +43,9 @@ const AuthProvider: React.FC = ({children}) => {
     loadStorageData();
   });
 
-  async function signIn(username: string, senha: string) {
+  async function signIn(email: string, password: string) {
     setLoading(true);
-    const response = await auth.signIn(username, senha);
+    const response = await auth.signIn(email, password);
     if (response) {
       setSignInData(response);
 
@@ -56,17 +59,6 @@ const AuthProvider: React.FC = ({children}) => {
   async function signOut() {
     await AsyncStorage.clear();
     setSignInData(null);
-  }
-
-  async function forgotPassword(mail: string, cpf: string) {
-    await auth.forgotPassword(mail, cpf);
-  }
-
-  async function agreeLgpd() {
-    const response = await auth.agreeLgpd();
-    if (response) {
-      setSignInData({...signInData, aceiteLGPD: response});
-    }
   }
 
   return (

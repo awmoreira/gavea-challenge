@@ -15,7 +15,7 @@ const noHeader = {
 
 const Unlogged: React.FC = () => {
   return (
-    <Auth.Navigator initialRouteName={Routes.SIGN_UP}>
+    <Auth.Navigator initialRouteName={Routes.SIGN_IN}>
       <Auth.Screen
         name={Routes.WELCOME}
         component={Welcome}

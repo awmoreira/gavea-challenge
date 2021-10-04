@@ -5,15 +5,16 @@ export const Container = styled.View`
   background-color: ${({theme}) => theme.colors.white};
 `;
 
-export const WrapperTop = styled.View`
-  flex: 1;
-`;
-export const WrapperCenter = styled.View`
+export const WrapperCenter = styled.KeyboardAvoidingView.attrs({
+  behavior: 'padding',
+})`
   flex: 1;
   padding-horizontal: 21px;
+  justify-content: center;
 `;
+
 export const WrapperBottom = styled.View`
-  flex: 1;
+  /* flex: 1; */
   flex-direction: row;
   justify-content: center;
   align-items: flex-end;
@@ -56,6 +57,5 @@ export const WrapperInputs = styled.View`
   min-height: 125px;
   margin-top: 31px;
   margin-bottom: 30px;
-  flex: 1;
-  justify-content: space-between;
+  justify-content: space-around;
 `;
