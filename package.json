@@ -25,10 +25,16 @@
     "styled-components": "^5.3.1",
     "yup": "^0.32.9"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "eslint --fix",
-      "git add"
+      "cross-env CI=true yarn test --bail --findRelatedTests",
+      "git add"
     ]
   },
   "devDependencies": {
