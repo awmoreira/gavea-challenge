@@ -1,18 +1,18 @@
-import React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
+import React from 'react';
+import {createStackNavigator} from '@react-navigation/stack';
 
-import UnloggedRoutes from "./Unlogged";
-import LoggedRoutes from "./Logged";
+import UnloggedRoutes from './Unlogged';
+import LoggedRoutes from './Logged';
 
-import Routes from "./routes";
-import { useAuth } from "~/contexts/Auth";
+import Routes from './routes';
+import {useAuth} from '~/contexts/Auth';
 
-import LoadingScreen from "~/components/LoadingScreen";
+import LoadingScreen from '~/components/LoadingScreen';
 
 const Stack = createStackNavigator();
 
 const Main: React.FC = () => {
-  const { storageLoading, signed } = useAuth();
+  const {storageLoading, signed} = useAuth();
 
   if (storageLoading) {
     return <LoadingScreen />;
@@ -36,7 +36,7 @@ const Main: React.FC = () => {
           options={{
             headerShown: false,
             gestureEnabled: false,
-            animationTypeForReplace: signed ? "push" : "pop",
+            animationTypeForReplace: signed ? 'push' : 'pop',
           }}
         />
       )}

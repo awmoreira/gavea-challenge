@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import Spinner from "~/components/Spinner";
-import Colors from "~/theme/colors";
+import Spinner from '~/components/Spinner';
+import Colors from '~/theme/colors';
 
-import { Container } from "./styles";
+import {Container} from './styles';
 
 const LoadingScreen: React.FC = () => {
   return (

@@ -1,13 +1,11 @@
-import React from "react";
-import {
-  createStackNavigator,
-} from "@react-navigation/stack";
+import React from 'react';
+import {createStackNavigator} from '@react-navigation/stack';
 
-import Welcome from "~/screens/Welcome";
-import SignIn from "~/screens/SignIn";
-import SignUp from "~/screens/SignUp";
+import Welcome from '~/screens/Welcome';
+import SignIn from '~/screens/SignIn';
+import SignUp from '~/screens/SignUp';
 
-import Routes from "../routes";
+import Routes from '../routes';
 
 const Auth = createStackNavigator();
 
@@ -17,7 +15,7 @@ const noHeader = {
 
 const Unlogged: React.FC = () => {
   return (
-    <Auth.Navigator initialRouteName={Routes.WELCOME}>
+    <Auth.Navigator initialRouteName={Routes.SIGN_IN}>
       <Auth.Screen
         name={Routes.WELCOME}
         component={Welcome}

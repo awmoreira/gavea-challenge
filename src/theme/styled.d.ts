@@ -1,9 +1,9 @@
-import Colors from "./colors";
-import Metrics from "./metrics";
-import Fonts from "./fonts";
-import General from "./general";
+import Colors from './colors';
+import Metrics from './metrics';
+import Fonts from './fonts';
+import General from './general';
 
-declare module "styled-components" {
+declare module 'styled-components' {
   export interface DefaultTheme {
     metrics: typeof Metrics;
 

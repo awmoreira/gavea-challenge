@@ -1,11 +1,11 @@
-import { Dimensions } from "react-native";
+import {Dimensions} from 'react-native';
 import {
   getStatusBarHeight,
   getBottomSpace,
   isIphoneX,
-} from "react-native-iphone-x-helper";
+} from 'react-native-iphone-x-helper';
 
-const { width, height } = Dimensions.get("window");
+const {width, height} = Dimensions.get('window');
 
 const Metrics = {
   basePadding: width < 375 ? 30 : 40,

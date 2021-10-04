@@ -1,9 +1,9 @@
-import Logo from "./logo.png";
-import Background from "./bg_welcome.png";
+import Logo from './logo.png';
+import Background from './bg_welcome.png';
 
 const Images = {
   Logo,
-  Background
+  Background,
 };
 
 export default Images;

@@ -1,9 +1,9 @@
 import React from 'react';
-import { GestureResponderEvent, ActivityIndicator } from 'react-native';
+import {GestureResponderEvent, ActivityIndicator} from 'react-native';
 
 import Colors from '~/theme/colors';
 
-import { Container, Button, Description, WrapperIcon } from './styles';
+import {Container, Button, Description, WrapperIcon} from './styles';
 
 interface ButtonProps {
   stretch?: boolean;

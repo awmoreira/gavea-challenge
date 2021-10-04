@@ -1,5 +1,5 @@
 import React from 'react';
-import { ActivityIndicator, ActivityIndicatorProps } from 'react-native';
+import {ActivityIndicator, ActivityIndicatorProps} from 'react-native';
 import Colors from '~/theme/colors';
 
 const Spinner: React.FC<ActivityIndicatorProps> = ({
