@@ -7,18 +7,13 @@ export const Container = styled.View`
 
 export const WrapperTop = styled.View`
   flex: 1;
+  max-width: 104px;
 `;
-// export const WrapperCenter = styled.View`
-//   flex: 2;
-//   padding-horizontal: 21px;
-// `;
 
-export const WrapperCenter = styled.KeyboardAvoidingView.attrs({
-  behavior: 'padding',
+export const WrapperCenter = styled.ScrollView.attrs({
+  showsVerticalScollIndicator: false,
 })`
-  flex: 2;
   padding-horizontal: 21px;
-  justify-content: center;
 `;
 
 export const WrapperBottom = styled.View`
@@ -56,7 +51,7 @@ export const DescriptionOrange = styled.Text`
 `;
 
 export const WrapperInputs = styled.View`
-  min-height: 280px;
+  min-height: 329px;
   margin-top: 22px;
   margin-bottom: 30px;
   justify-content: space-around;

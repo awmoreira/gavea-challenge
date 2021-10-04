@@ -18,7 +18,7 @@ interface IWrapperInput {
 }
 
 export const WrapperInput = styled.View<IWrapperInput>`
-  height: 55px;
+  height: 58px;
   padding: 20px 5.5px 19.5px 19.5px;
   flex-direction: row;
   align-items: center;

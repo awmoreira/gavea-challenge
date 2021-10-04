@@ -3,6 +3,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import * as auth from '~/services/auth';
 import api from '~/services/api';
+import dropdownRef from '~/components/DropdownAlert';
 
 type UserData = {
   fullname: string;
@@ -17,6 +18,12 @@ interface AuthContextData {
   loading: boolean;
   signIn(username: string, password: string): Promise<void>;
   signOut(): void;
+  signUp(
+    fullname: string,
+    email: string,
+    password: string,
+    confirmation: string,
+  ): void;
 }
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
@@ -61,6 +68,31 @@ const AuthProvider: React.FC = ({children}) => {
     setSignInData(null);
   }
 
+  async function signUp(
+    fullname: string,
+    email: string,
+    password: string,
+    confirmation: string,
+  ) {
+    try {
+      if (password === confirmation) {
+        setSignInData({fullname, email, token: '123-1231-123-1231-12323'});
+      } else {
+        dropdownRef.current?.alertWithType(
+          'error',
+          'Problema com a senha',
+          'As senhas não são iguais.',
+        );
+      }
+    } catch (err) {
+      dropdownRef.current?.alertWithType(
+        'error',
+        'API Error',
+        'Nenhuma resposta da API.',
+      );
+    }
+  }
+
   return (
     <AuthContext.Provider
       value={{
@@ -70,6 +102,7 @@ const AuthProvider: React.FC = ({children}) => {
         loading,
         signIn,
         signOut,
+        signUp,
       }}>
       {children}
     </AuthContext.Provider>

@@ -6,6 +6,7 @@ import {
   useNavigationContainerRef,
 } from '@react-navigation/native';
 import Routes from '~/navigation';
+import {DropdownAlert} from '~/components/DropdownAlert';
 import theme from '~/theme';
 import {AuthProvider} from '~/contexts/Auth';
 
@@ -17,6 +18,7 @@ const App: React.FC = () => {
       <AuthProvider>
         <ThemeProvider theme={theme}>
           <Routes />
+          <DropdownAlert />
         </ThemeProvider>
       </AuthProvider>
     </NavigationContainer>
