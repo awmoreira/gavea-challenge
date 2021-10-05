@@ -29,7 +29,8 @@ export const WrapperInput = styled.View<IWrapperInput>`
 
 export const Input = styled.TextInput`
   flex: 1;
-  padding: ${() => (Platform.OS === 'ios' ? 0 : 5)}px 0 0 0;
+  height: 58px;
+  /* padding: ${() => (Platform.OS === 'ios' ? 0 : 0)}px 0 0 0; */
   color: ${({theme, editable}) =>
     editable === false ? theme.colors.gray[200] : theme.colors.gray[400]};
   font-family: ${({theme}) => theme.fonts.karla.regular};
