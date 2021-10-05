@@ -1,5 +1,6 @@
 import 'react-native-gesture-handler';
 import React from 'react';
+import {LogBox} from 'react-native';
 import {ThemeProvider} from 'styled-components';
 import {
   NavigationContainer,
@@ -9,6 +10,8 @@ import Routes from '~/navigation';
 import {DropdownAlert} from '~/components/DropdownAlert';
 import theme from '~/theme';
 import {AuthProvider} from '~/contexts/Auth';
+
+LogBox.ignoreAllLogs();
 
 const App: React.FC = () => {
   const navigationRef = useNavigationContainerRef();

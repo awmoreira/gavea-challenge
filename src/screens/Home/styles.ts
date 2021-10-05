@@ -4,42 +4,31 @@ export const Container = styled.View`
   flex: 1;
 `;
 
-export const Header = styled.View`
+export const Logout = styled.TouchableOpacity``;
+
+export const Logo = styled.Image.attrs({
+  resizeMode: 'contain',
+})`
   width: 100%;
-  min-height: 150px;
-  background-color: #01426a;
-  justify-content: center;
-  align-items: center;
+  height: 100%;
 `;
 
-export const Wrapper = styled.ScrollView.attrs({
-  showsVerticalScrollIndicator: false,
-})`
-  flex: 1;
-  margin-horizontal: 21px;
+export const WrapperInfo = styled.View`
+  position: absolute;
+  height: 80px;
+  top: 110px;
+  width: 100%;
+  box-shadow: 0px 12px 35px rgba(1, 66, 106, 0.2);
+  padding-horizontal: 21px;
 `;
 
 export const BoxInfo = styled.View`
-  position: relative;
-  bottom: 38px;
-  height: 80px;
-  background: #ffffff;
-  box-shadow: 0px 12px 35px rgba(1, 66, 106, 0.2);
-  border-radius: 7px;
-  margin-horizontal: 21px;
-  padding: 15px 16px;
+  flex: 1;
   flex-direction: row;
   align-items: center;
-`;
-
-export const WrapperLogo = styled.TouchableOpacity`
-  width: 99px;
-  height: 45.66px;
-`;
-
-export const Logo = styled.Image`
-  width: 100%;
-  height: 100%;
+  background-color: ${({theme}) => theme.colors.white};
+  border-radius: 7px;
+  padding: 15px 16px;
 `;
 
 export const InitialsName = styled.View`
