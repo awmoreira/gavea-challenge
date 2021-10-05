@@ -34,12 +34,18 @@ const Welcome: React.FC = () => {
           <WrapperLogo>
             <Logo source={Images.Logo} />
           </WrapperLogo>
-          <Title>Bem-vindo a sua bolsa digital de commodities</Title>
+          <Title testID="title-welcome">
+            Bem-vindo a sua bolsa digital de commodities
+          </Title>
         </WrapperTop>
         <WrapperBottom>
           <WrapperButtons>
-            <PrimaryButton onPress={() => goToSignIn()}>Entrar</PrimaryButton>
-            <SecondaryButton onPress={() => goToSignUp()}>
+            <PrimaryButton testID="button-login" onPress={() => goToSignIn()}>
+              Entrar
+            </PrimaryButton>
+            <SecondaryButton
+              testID="button-register"
+              onPress={() => goToSignUp()}>
               Criar conta
             </SecondaryButton>
           </WrapperButtons>

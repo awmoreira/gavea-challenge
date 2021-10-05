@@ -12,6 +12,7 @@ interface ButtonProps {
   disabled?: boolean;
   margin?: boolean;
   Icon?: React.ReactNode;
+  testID?: string;
 }
 const PrimaryButton: React.FC<ButtonProps> = ({
   stretch = true,
@@ -21,9 +22,14 @@ const PrimaryButton: React.FC<ButtonProps> = ({
   margin,
   children = 'Children',
   Icon,
+  testID = '',
 }) => (
   <Container stretch={stretch}>
-    <Button onPress={onPress} disabled={disabled} margin={margin}>
+    <Button
+      onPress={onPress}
+      disabled={disabled}
+      margin={margin}
+      testID={testID}>
       {loading ? (
         <ActivityIndicator color={Colors.white} />
       ) : (

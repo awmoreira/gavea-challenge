@@ -16,12 +16,12 @@ export const WrapperBottom = styled.View`
   height: 130px;
   position: absolute;
   bottom: 68px;
-  width: ${({theme}) => theme.metrics.screenWidth};
+  width: ${({theme}) => theme.metrics?.screenWidth};
 `;
 
 export const WrapperLogo = styled.View`
   position: absolute;
-  top: ${({theme}) => (theme.metrics.screenWidth <= 375 ? '0px' : '45px')};
+  top: ${({theme}) => (theme.metrics?.screenWidth <= 375 ? '0px' : '45px')};
   left: 21px;
 `;
 
@@ -34,10 +34,8 @@ export const Title = styled.Text`
   width: 290px;
   position: absolute;
   left: 21px;
-  top: ${({theme}) => (theme.metrics.screenWidth <= 375 ? '252px' : '299px')};
-
-  font-family: ${({theme}) => theme.fonts.inter.regular};
-  font-style: normal;
+  top: ${({theme}) => (theme.metrics?.screenWidth <= 375 ? '252px' : '299px')};
+  font-family: ${({theme}) => theme.fonts?.inter?.regular};
   font-weight: bold;
   font-size: 36px;
   color: #ffffff;

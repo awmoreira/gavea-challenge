@@ -51,7 +51,6 @@ const SignUp: React.FC = () => {
           <Title>Criar Conta</Title>
           <WrapperInputs>
             <Input
-              autoFocus
               onChangeText={handleChange('fullname')}
               value={values.fullname}
               autoCapitalize="none"

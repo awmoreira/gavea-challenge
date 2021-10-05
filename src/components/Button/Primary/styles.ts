@@ -24,8 +24,8 @@ export const Button = styled.TouchableOpacity.attrs(() => ({
 }))<ButtonProps>`
   height: 55px;
   padding: 0 15px;
-  background-color: ${({theme, disabled}) =>
-    disabled ? theme.colors.gray[200] : theme.colors.orange};
+  background-color: ${({theme, disabled = false}) =>
+    disabled ? theme.colors?.gray[200] : theme.colors?.orange};
   align-items: center;
   justify-content: center;
   flex-direction: row;
@@ -42,9 +42,9 @@ export const Button = styled.TouchableOpacity.attrs(() => ({
 export const Description = styled.Text.attrs({
   allowFontScaling: false,
 })`
-  font-family: ${({theme}) => theme.fonts.inter[700]};
+  font-family: ${({theme}) => theme.fonts?.inter[700]};
   font-size: 15px;
-  color: ${({theme}) => theme.colors.white};
+  color: ${({theme}) => theme.colors?.white};
   text-align: center;
 `;
 

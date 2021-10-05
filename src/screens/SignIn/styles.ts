@@ -22,19 +22,19 @@ export const WrapperBottom = styled.View`
 `;
 
 export const Title = styled.Text`
-  font-family: ${({theme}) => theme.fonts.inter.regular};
+  font-family: ${({theme}) => theme.fonts?.inter?.regular};
   font-weight: 600;
   font-size: 35px;
 
-  color: ${({theme}) => theme.colors.orange};
+  color: ${({theme}) => theme.colors?.orange};
 `;
 
 export const Subtitle = styled.Text`
-  font-family: ${({theme}) => theme.fonts.inter.regular};
+  font-family: ${({theme}) => theme.fonts?.inter?.regular};
   font-weight: 600;
   font-size: 35px;
 
-  color: ${({theme}) => theme.colors.black};
+  color: ${({theme}) => theme.colors?.black};
 `;
 
 export const Description = styled.Text`

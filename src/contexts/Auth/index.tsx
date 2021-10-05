@@ -6,11 +6,11 @@ import api from '~/services/api';
 import dropdownRef from '~/components/DropdownAlert';
 
 type UserData = {
+  email: string;
+  id?: string;
   profile?: {
     fullname?: string;
   };
-  email: string;
-  token?: string;
 };
 
 interface AuthContextData {
